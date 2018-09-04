@@ -1,0 +1,119 @@
+<!doctype html>
+<head>
+	<title>登录页面</title>
+	<meta charset="utf-8">
+	<link href="css/index.css" rel="stylesheet">
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/ajax3.0.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<!--header开始-->
+	<div class="header">
+		<div class="h_c">
+			<!--logo-->
+			<a href="#"><img class="logo" src="images/logo.PNG"></a>
+			<!--警告-->
+			<p class="msg">为确保您账户的安全及正常使用，依《网络安全法》相关要求，6月1日起会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！</p>
+			<!--建议-->
+			<div class="sug">
+				<a href="#">
+					<img src="images/msg.png">
+					<span>"登录页面"改进建议</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!--header结束-->
+	<!--登录开始-->
+	<div class="main">
+		<a href="#" class="map"></a>
+		<div id="login">
+			<p class="non" id="non"><span>-</span>你输入的密码和账户名不匹配，是否<a href="#">忘记密码</a>　 　　或<a href="#">忘记会员名</a></p>
+			<h3>密码登录</h3>
+			<div class="input1" >
+				<input type="text" id="user" name="username" placeholder="会员名/邮箱/手机号">
+				<div class="name"></div>
+			</div>
+			<div class="input2">
+				<input type="password" name="psd">
+				<div class="psd"></div>
+			</div>
+			<a href="#" class="btn">登录</a>
+			<p class="for">
+				<a href="#">
+					<img src="images/weibo.png" width="19" height="19">微博登录
+				</a>
+				<a href="#">
+					<img src="images/zfb.png" width="19" height="19">支付宝登录
+				</a>
+			</p>
+			<p class="tips"> 
+				<a href="#">忘记密码</a>
+				<a href="#">忘记会员名</a>
+				<a href="#">免费注册</a>
+			</p>
+		</div>
+	</div>
+	<!--登录结束-->
+	<!--footer开始-->
+	<div class="footer">
+		<div class="f_c">
+			<p class="coo">
+				<a href="#">阿里巴巴集团</a><span>|</span>
+				<a href="#">阿里巴巴国际站</a><span>|</span>
+				<a href="#">阿里巴巴中国站</a><span>|</span>
+				<a href="#">全球速卖通</a><span>|</span>
+				<a href="#">淘宝网</a><span>|</span>
+				<a href="#">天猫</a><span>|</span>
+				<a href="#">聚划算</a><span>|</span>
+				<a href="#">一淘</a><span>|</span>
+				<a href="#">阿里妈妈</a><span>|</span>
+				<a href="#">飞猪</a><span>|</span>
+				<a href="#">虾米</a><span>|</span>
+				<a href="#">阿里云计算</a><span>|</span>
+				<a href="#">云OS</a><span>|</span>
+				<a href="#">万网</a><span>|</span>
+				<a href="#">支付宝</a><span>|</span>
+				<a href="#">来往</a>
+			</p>
+			<p class="guan">
+				<a href="#">关于淘宝</a>
+				<a href="#">合作伙伴</a>
+				<a href="#">营销中心</a>
+				<a href="#">廉正举报</a>
+				<a href="#">联系客服</a>
+				<a href="#">开放平台</a>
+				<a href="#">诚征英才</a>
+				<a href="#">联系我们</a>
+				<a href="#">网站地图</a>
+				<a href="#">法律声明及隐私权政策</a>
+				<span>© 2018 Taobao.com 版权所有</span>
+			</p>
+			<p class="xu">网络文化经营许可证：浙网文[2016]0132-032号 | 增值电信业务经营许可证：浙B2-20080224-1 | 信息网络传播视听节目许可证：1109364号<p>
+			<a href="#"><img src="images/wj.gif"></a>
+		</div>
+	</div>
+	<script>
+		//验证用户名密码
+var user=document.getElementById('user');
+var non=document.getElementById('non');
+	user.onblur=function(){
+		var uname=this.value;
+		//alert(uname)
+		
+		//发送 获取信息
+		Ajax().post('login.php','uuu='+uname,function(msg){
+			//console.log(msg);	
+			if(msg=='y'){
+				//表示以注册
+				non.style.display='block';
+			}else{
+				//表示可以注册
+				non.style.display='none';
+			}
+		});
+	}
+	</script>
+	<!--footer结束-->
+</body>
